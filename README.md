@@ -1,4 +1,6 @@
 # MyBatis-Generator-core-master
+
+```
 说明:
 1.添加中文注释（数据库中的备注信息），支持MYSQL和ORACLE
 2.添加自定义XML Mapper名称前缀和后缀。例如：数据库表为user xmlMapperPrefix设置为mybatis-mapper-,xmlMapperSuffix不设置,文件名称为:mybatis-mapper-user.xml;默认:userMapper.xml
@@ -11,7 +13,9 @@
 代码基于官方源码1.3.5
 备注:部分代码参考网上教程
 
+```
 ---------
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
@@ -168,4 +172,5 @@
         <table tableName="anchor" domainObjectName="Anchor" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
     </context>
 </generatorConfiguration>
+
 ```
