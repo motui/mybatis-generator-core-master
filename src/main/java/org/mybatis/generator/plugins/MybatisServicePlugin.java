@@ -55,7 +55,6 @@ public class MybatisServicePlugin extends PluginAdapter {
     protected boolean enableUpdateByExample = false;
     protected boolean enableUpdateByExampleSelective = false;
 
-    // private static final String pattern = "yyyy/MM/dd HH:mm:ss";
 
     /**
      * Date 格式化
@@ -64,9 +63,6 @@ public class MybatisServicePlugin extends PluginAdapter {
 
     public MybatisServicePlugin() {
         super();
-        // 默认是slf4j
-        // slf4jLogger = new FullyQualifiedJavaType("org.slf4j.Logger");
-        // slf4jLoggerFactory = new FullyQualifiedJavaType("org.slf4j.LoggerFactory");
         this.methods = new ArrayList<Method>();
 
     }
@@ -81,8 +77,6 @@ public class MybatisServicePlugin extends PluginAdapter {
      */
     @Override
     public boolean validate(List<String> warnings) {
-        // if (StringUtility.stringHasValue(properties.getProperty("enableAnnotation")))
-        //     enableAnnotation = StringUtility.isTrue(properties.getProperty("enableAnnotation"));
         //从context中获得是否开启spring注解
         String property = context.getProperty(PropertyRegistry.CONTEXT_ENABLE_SPRING_ANNOTATION);
         enableSpringAnnotation = StringUtility.isTrue(property);
@@ -603,19 +597,5 @@ public class MybatisServicePlugin extends PluginAdapter {
         sb.append(sdf.format(new Date()));
         sb.append("\n */");
         return sb.toString();
-    }
-
-    /**
-     * 导入logger
-     */
-    private void addLogger(TopLevelClass topLevelClass) {
-        Field field = new Field();
-        field.setFinal(true);
-        field.setInitializationString("LoggerFactory.getLogger(" + topLevelClass.getType().getShortName() + ".class)"); // 设置值
-        field.setName("logger"); // 设置变量名
-        field.setStatic(true);
-        field.setType(new FullyQualifiedJavaType("Logger")); // 类型
-        field.setVisibility(JavaVisibility.PRIVATE);
-        topLevelClass.addField(field);
     }
 }
